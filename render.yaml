@@ -15,9 +15,9 @@ services:
     buildCommand: npm install
     startCommand: npm start
     scaling:
-      minInstances: 1
-      maxInstances: 2
-      targetMemoryPercent: 60
+      minInstances: 0
+      maxInstances: 1
+      targetMemoryPercent: 15
 
     preDeployCommand: npm install
     domains:
