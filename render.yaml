@@ -7,13 +7,19 @@ services:
     rootDir: .
     healthCheckPath: /
     envVars:
-      - POSGRES_URL=postgres://{{privateDatabase.user}}:{{privateDatabase.password}}@{{privateDatabase.host}}
+      - key: STRIPE_API_KEY
+        value: Z2V0IG91dHRhIGhlcmUhCg
+      - key: DB_URL
+        fromDatabase:
+          name: iabdCloudRenderYamlDatabase
+          property: connectionString
+
     plan: free
     buildCommand: npm install
     startCommand: npm start
     scaling:
-      min: 1
-      max: 1
+      minInstances: 1
+      maxInstances: 1
     preDeployCommand: npm install
     domains:
       - iabdcloud.render.com
