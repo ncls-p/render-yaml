@@ -1,24 +1,21 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require("sequelize");
 
 // Database
-const sequelize = new Sequelize(
-  '', // TODO: add database url
-  {
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
+const sequelize = new Sequelize(process.env.DB_URL, {
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
     },
-    define: {
-      createdAt: 'added',
-      updatedAt: 'updated',
-    }
   },
-)
+  define: {
+    createdAt: "added",
+    updatedAt: "updated",
+  },
+});
 
-sequelize.authenticate()
-sequelize.sync()
+sequelize.authenticate();
+sequelize.sync();
 
-module.exports = sequelize
+module.exports = sequelize;
