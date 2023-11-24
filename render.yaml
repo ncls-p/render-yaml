@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: iabdCloudRenderYaml
+    runtime: node
+    repo: https://github.com/ncls-p/render-yaml
+    region: frankfurt
+    rootDir: .
+    healthCheckPath: /
+    envVars:
+      - POSTGRESS_URL: postgres://postgress:cINBQ6nd3GnDFUmBcxcp4dQrj30TD0Bl@dpg-clfl72mg1b2c73a24qvg-a.frankfurt-postgres.render.com/iabdcloud
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    scaling:
+      min: 1
+      max: 1
+    preDeployCommand: npm install
+    domains:
+      - iabdcloud.render.com
+    autoDeploy: true
