@@ -7,19 +7,18 @@ services:
     rootDir: .
     healthCheckPath: /
     envVars:
-      - key: STRIPE_API_KEY
-        value: Z2V0IG91dHRhIGhlcmUhCg
       - key: DB_URL
         fromDatabase:
           name: iabdCloudRenderYamlDatabase
           property: connectionString
+    targetMemoryPercent: 60
 
     plan: free
     buildCommand: npm install
     startCommand: npm start
     scaling:
       minInstances: 1
-      maxInstances: 1
+      maxInstances: 2
     preDeployCommand: npm install
     domains:
       - iabdcloud.render.com
