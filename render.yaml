@@ -23,8 +23,5 @@ databases:
   - name: iabdCloudRenderYamlDatabase
     databaseName: iabdcloud
     user: postgress
-
-  - name: privateDatabase
-    databaseName: private
     ipAllowList: []
     plan: free
