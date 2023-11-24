@@ -4,8 +4,6 @@ services:
     runtime: node
     repo: https://github.com/ncls-p/render-yaml
     region: frankfurt
-    rootDir: .
-    healthCheckPath: /
     envVars:
       - key: DB_URL
         fromDatabase:
@@ -14,14 +12,9 @@ services:
     plan: free
     buildCommand: npm install
     startCommand: npm start
-    scaling:
-      minInstances: 1
-      maxInstances: 2
-      targetMemoryPercent: 15
     preDeployCommand: npm install
 databases:
   - name: iabdCloudRenderYamlDatabase
     databaseName: iabdcloud
     user: postgress
-    ipAllowList: []
     plan: free
