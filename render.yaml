@@ -11,14 +11,14 @@ services:
         fromDatabase:
           name: iabdCloudRenderYamlDatabase
           property: connectionString
-    targetMemoryPercent: 60
-
     plan: free
     buildCommand: npm install
     startCommand: npm start
     scaling:
       minInstances: 1
       maxInstances: 2
+      targetMemoryPercent: 60
+
     preDeployCommand: npm install
     domains:
       - iabdcloud.render.com
