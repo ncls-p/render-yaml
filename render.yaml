@@ -31,4 +31,5 @@ databases:
 
   - name: privateDatabase
     databaseName: private
-    ipAllowList: [] # only allow internal connections
+    ipAllowList: []
+    plan: free
