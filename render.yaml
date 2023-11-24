@@ -7,7 +7,7 @@ services:
     rootDir: .
     healthCheckPath: /
     envVars:
-      - POSTGRESS_URL: postgres://postgress:cINBQ6nd3GnDFUmBcxcp4dQrj30TD0Bl@dpg-clfl72mg1b2c73a24qvg-a.frankfurt-postgres.render.com/iabdcloud
+      - POSGRES_URL=postgres://{{privateDatabase.user}}:{{privateDatabase.password}}@{{privateDatabase.host}}
     plan: free
     buildCommand: npm install
     startCommand: npm start
@@ -18,3 +18,12 @@ services:
     domains:
       - iabdcloud.render.com
     autoDeploy: true
+
+databases:
+  - name: iabdCloudRenderYamlDatabase
+    databaseName: iabdcloud
+    user: postgress
+
+  - name: privateDatabase
+    databaseName: private
+    ipAllowList: [] # only allow internal connections
