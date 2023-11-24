@@ -18,12 +18,7 @@ services:
       minInstances: 1
       maxInstances: 2
       targetMemoryPercent: 15
-
     preDeployCommand: npm install
-    domains:
-      - iabdcloud.render.com
-    autoDeploy: true
-
 databases:
   - name: iabdCloudRenderYamlDatabase
     databaseName: iabdcloud
